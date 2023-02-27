@@ -1,6 +1,4 @@
-import java.util.ArrayDeque;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,6 +10,11 @@ public class Main {
         queue.remove();
         System.out.println(queue);
         System.out.println(reverseQueue(queue));
+        var arr = new int[3];
+        arr[0] = 99;
+        arr[1] = 3;
+        arr[2] = 945;
+        System.out.println(Arrays.toString(sortArrayUsingPriorityQue(arr)));
     }
 
     //reverse a queue
@@ -24,5 +27,18 @@ public class Main {
             q.add(stack.pop());
         }
         return q;
+    }
+    public static int[] sortArrayUsingPriorityQue(int[] nums){
+        int[] arr = new int[nums.length];
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        for (var num: nums){
+            pq.add(num);
+        }
+        int i = 0;
+        while (!pq.isEmpty()){
+            arr[i] = pq.remove();
+            i++;
+        }
+        return arr;
     }
 }
